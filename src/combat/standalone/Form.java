@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import combat.BattleBoard;
 import ui.Screen;
 import ui.controls.PaintPanel;
+import ui.ControlInputHandler;
 
 import java.awt.BorderLayout;
 
@@ -32,7 +33,12 @@ public class Form {
 
 		PaintPanel panel = new PaintPanel();
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
-		
+
+		// Set up the controllers/handlers.
+		ControlInputHandler controlHandler = new ControlInputHandler();
+		panel.addMouseListener(controlHandler);
+		panel.addMouseMotionListener(controlHandler);
+
 		// Start everything up:
 		panel.addDrawable(new BattleBoard());
 	}
