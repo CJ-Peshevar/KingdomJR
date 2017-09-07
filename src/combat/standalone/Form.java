@@ -3,6 +3,7 @@ package combat.standalone;
 import javax.swing.JFrame;
 
 import combat.BattleBoard;
+import combat.BattleSize;
 import ui.Screen;
 import ui.controls.PaintPanel;
 import ui.ControlInputHandler;
@@ -40,6 +41,6 @@ public class Form {
 		panel.addMouseMotionListener(controlHandler);
 
 		// Start everything up:
-		panel.addDrawable(new BattleBoard());
+		panel.addDrawable(new BattleBoard(BattleSize.Large));
 	}
 }

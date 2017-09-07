@@ -17,9 +17,9 @@ public class BattleBoard implements iDraw {
 	private boolean isCharging;
 	private Button chargeButton = new Button("PlainButton", 50, 630, 200, 50);
 
-	public BattleBoard(){
-		leftGrid = new Grid(3, 3);
-		rightGrid = new Grid(3, 3);
+	public BattleBoard(BattleSize gridSize){
+		leftGrid = new Grid(Side.Left, gridSize);
+		rightGrid = new Grid(Side.Right, gridSize);
 
 		// Setting the button as active will cause it to be drawn and receive user input.
 		chargeButton.setIsActive(true);
