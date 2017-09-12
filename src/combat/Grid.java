@@ -1,16 +1,15 @@
 package combat;
 
-import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Image;
 
-import crayon.iDraw;
-import ui.Resources;
+import beijerinc.games.engine.Resources;
+import beijerinc.games.engine.interfaces.GameComponent;
+import beijerinc.games.graphics.interfaces.IGraphics;
 import ui.Screen;
 
 //should only be programmed on how to move units within it's own
 //grid and how those units interact with each other.
-public class Grid implements iDraw {
+public class Grid extends GameComponent {
 	private int gridX;
 	private int gridY;
 	private int gridWidth;
@@ -45,15 +44,19 @@ public class Grid implements iDraw {
 	}
 
 	@Override
-	public void Draw(Graphics g, Graphics2D g2d) {
-		backline.Draw(g, g2d);
+	public void update(double delta) {
+	}
+
+	@Override
+	public void draw(IGraphics g) {
+		backline.draw(g);
 		
 		for (int x = 0; x < width; x++){
 			for (int y = 0; y < height; y++){
 				g.drawImage(gridImage, gridX + x * gridWidth, gridY + y * gridHeight, gridWidth, gridHeight, null);
 
 				if (units[x][y] != null){
-					units[x][y].Draw(g, g2d);
+					units[x][y].draw(g);
 				}
 			}
 		}

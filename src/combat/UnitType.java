@@ -2,7 +2,7 @@ package combat;
 
 import java.awt.Image;
 
-import ui.Resources;
+import beijerinc.games.engine.Resources;
 
 public enum UnitType {
 	Soldier,

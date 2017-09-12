@@ -1,13 +1,12 @@
 package combat;
 
-import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Image;
 
-import crayon.iDraw;
+import beijerinc.games.engine.interfaces.GameComponent;
+import beijerinc.games.graphics.interfaces.IGraphics;
 
 // Will be abstract later.
-public class Unit implements iDraw {
+public class Unit extends GameComponent {
 	private UnitType type;
 	private Image unitImage;
 	private int x;
@@ -21,10 +20,13 @@ public class Unit implements iDraw {
 		width = size.GetUnitWidth();
 		height = size.GetUnitHeight();
 	}
+
+	@Override
+	public void update(double delta) {
+	}
 	
 	@Override
-	public void Draw(Graphics g, Graphics2D g2d) {
+	public void draw(IGraphics g) {
 		g.drawImage(unitImage, x, y, width, height, null);
 	}
-
 }

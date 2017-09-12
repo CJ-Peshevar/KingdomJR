@@ -1,14 +1,14 @@
 package combat;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+
 import java.awt.Image;
 
-import crayon.iDraw;
-import ui.Resources;
+import beijerinc.games.engine.Resources;
+import beijerinc.games.engine.interfaces.GameComponent;
+import beijerinc.games.graphics.interfaces.IGraphics;
 import ui.Screen;
 
 //where King is located
-public class Backline implements iDraw {
+public class Backline extends GameComponent {
 	private Image queenImage;
 	private int x;
 	private int y;
@@ -41,7 +41,11 @@ public class Backline implements iDraw {
 	}
 
 	@Override
-	public void Draw(Graphics g, Graphics2D g2d) {
+	public void update(double delta) {
+	}
+
+	@Override
+	public void draw(IGraphics g) {
 		// draw image
 		g.drawImage(queenImage, x, y, width, height, null);
 	}
